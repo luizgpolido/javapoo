@@ -1,13 +1,16 @@
 package ex005.services;
 
 public class PayPalService implements OnlinePaymentService {
-    @Override
-    public Double paymentFee(Double amount) {
-        return null;
-    }
+
+    private static final double FEE_PERCENTAGE = 0.02;
+    private static final double MONTHLY_INTEREST = 0.01;
 
     @Override
     public Double interest(Double amount, Integer months) {
-        return null;
+        return amount * MONTHLY_INTEREST * months;
+    }
+    @Override
+    public Double paymentFee(Double amount) {
+        return amount * FEE_PERCENTAGE;
     }
 }
